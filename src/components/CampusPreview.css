@@ -1,0 +1,77 @@
+.campus-preview {
+  background: linear-gradient(135deg, var(--bg-secondary) 0%, var(--bg-tertiary) 100%);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 20px;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  backdrop-filter: blur(10px);
+  overflow: hidden;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+}
+
+.campus-header {
+  margin-bottom: 20px;
+}
+
+.campus-header h3 {
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--text-secondary);
+  margin: 0;
+  letter-spacing: 1px;
+}
+
+.campus-header p {
+  font-size: 12px;
+  color: var(--text-muted);
+  margin: 6px 0 0 0;
+}
+
+.campus-placeholder {
+  flex: 1;
+  background: radial-gradient(circle at center, rgba(99, 102, 241, 0.05), transparent);
+  border: 1px dashed var(--accent);
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  overflow: hidden;
+}
+
+.loading-animation {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+}
+
+.loading-spinner {
+  width: 50px;
+  height: 50px;
+  border: 3px solid var(--accent);
+  border-top-color: transparent;
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+}
+
+.loading-animation p {
+  color: var(--text-secondary);
+  font-size: 14px;
+  font-weight: 600;
+  letter-spacing: 2px;
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@media (max-width: 768px) {
+  .campus-preview {
+    min-height: 400px;
+  }
+}
