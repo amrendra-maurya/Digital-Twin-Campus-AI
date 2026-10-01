@@ -1,16 +1,1 @@
-import Overview from './pages/Overview'
-import './MainDashboard.css'
-
-function MainDashboard({ activePage }) {
-  return (
-    <main className="main-content">
-      {activePage === 'overview' && <Overview />}
-      {activePage === 'explorer' && <div className="placeholder">Campus Explorer (Coming Soon)</div>}
-      {activePage === 'analytics' && <div className="placeholder">Analytics (Coming Soon)</div>}
-      {activePage === 'maintenance' && <div className="placeholder">Maintenance (Coming Soon)</div>}
-      {activePage === 'ai' && <div className="placeholder">Campus AI (Coming Soon)</div>}
-    </main>
-  )
-}
-
-export default MainDashboard
+import { lazy, Suspense } from 'react'\nimport './MainDashboard.css'\n\nconst Overview = lazy(() => import('./pages/Overview'))\n\nfunction MainDashboard({ activePage }) {\n  return (\n    <main className=\"main-content\">\n      <Suspense fallback={<div className=\"placeholder\">Loading...</div>}>\n        {activePage === 'overview' && <Overview />}\n        {activePage === 'explorer' && <div className=\"placeholder\">Campus Explorer (Coming Soon)</div>}\n        {activePage === 'analytics' && <div className=\"placeholder\">Analytics (Coming Soon)</div>}\n        {activePage === 'maintenance' && <div className=\"placeholder\">Maintenance (Coming Soon)</div>}\n        {activePage === 'ai' && <div className=\"placeholder\">Campus AI (Coming Soon)</div>}\n      </Suspense>\n    </main>\n  )\n}\n\nexport default MainDashboard\n
